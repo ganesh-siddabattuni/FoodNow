@@ -1,7 +1,5 @@
 # 🍔 FoodNow - Full-Stack Food Delivery Application
 
-![FoodNow Application Banner](https://i.imgur.com/w9O1wM9.png)
-
 **FoodNow** is a modern, full-stack food ordering and delivery platform designed to connect customers with their favorite local restaurants. Built with a powerful backend using Java & Spring Boot and a dynamic frontend using Angular, this application provides a seamless and feature-rich experience for customers, restaurant owners, and administrators.
 
 ---
