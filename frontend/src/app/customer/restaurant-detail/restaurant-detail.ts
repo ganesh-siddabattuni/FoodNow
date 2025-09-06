@@ -1,0 +1,74 @@
+import { Component, OnInit, signal, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { switchMap } from 'rxjs';
+import { Restaurant, RestaurantService, MenuItem } from '../../restaurant/restaurant';
+import { CartService } from '../../cart/cart';
+import { NotificationService } from '../../shared/notification';
+import { FullUrlPipe } from '../../shared/pipes/full-url';
+
+@Component({
+  selector: 'app-restaurant-detail',
+  standalone: true,
+  imports: [CommonModule, RouterLink, FullUrlPipe],
+  templateUrl: './restaurant-detail.html',
+  styleUrls: ['./restaurant-detail.css'] 
+})
+export class RestaurantDetailComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private restaurantService = inject(RestaurantService);
+  private cartService = inject(CartService);
+  private notificationService = inject(NotificationService);
+
+  restaurant = signal<Restaurant | null>(null);
+
+  ngOnInit() {
+    this.route.paramMap.pipe(
+      switchMap(params => {
+        const restaurantId = params.get('id');
+        if (!restaurantId) return []; 
+        return this.restaurantService.getRestaurantById(restaurantId);
+      })
+    ).subscribe({
+      next: data => this.restaurant.set(data),
+      error: () => this.notificationService.error('Could not load restaurant details.')
+    });
+  }
+
+  increaseQuantity(input: HTMLInputElement) {
+    input.value = (parseInt(input.value, 10) + 1).toString();
+  }
+
+  decreaseQuantity(input: HTMLInputElement) {
+    const currentValue = parseInt(input.value, 10);
+    if (currentValue > 1) {
+      input.value = (currentValue - 1).toString();
+    }
+  }
+
+  getStars(rating: number): boolean[] {
+    const fullStars = Math.floor(rating);
+    const stars = Array(5).fill(false);
+    for (let i = 0; i < fullStars; i++) {
+      stars[i] = true;
+    }
+    return stars;
+  }
+
+  addToCart(item: MenuItem, quantityInput: HTMLInputElement) {
+    const quantity = parseInt(quantityInput.value, 10);
+
+    if (isNaN(quantity) || quantity < 1) {
+      this.notificationService.error('Please enter a valid quantity.');
+      return;
+    }
+
+    this.cartService.addToCart(item.id, quantity).subscribe({
+      next: () => {
+        this.notificationService.success(`${quantity} x ${item.name} added to cart!`);
+        quantityInput.value = '1';
+      },
+      error: () => this.notificationService.error('Failed to add item to cart.')
+    });
+  }
+}

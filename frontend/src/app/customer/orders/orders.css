@@ -1,0 +1,263 @@
+:host {
+  display: block;
+}
+
+.page-container {
+  max-width: 1024px;
+  margin: 6rem auto 2rem;
+  padding: 0 1rem;
+}
+
+.page-header {
+  margin-bottom: 3rem;
+}
+.cancel-btn {
+  display: inline-block;
+  background-color: #ef4444; /* red-500 */
+  color: #ffffff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px; /* pill shape */
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626; /* red-600 */
+  transform: translateY(-1px);
+}
+.order-address {
+  /* Use subtle borders instead of a background color */
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Faint white border */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px; /* Add some space above */
+}
+
+.address-line {
+  /* Make the main address line a brighter, light gray */
+  font-weight: 500;
+  color: #e2e8f0; 
+  margin-bottom: 4px; /* Space between the address lines */
+}
+
+.address-city-code {
+  /* Make the secondary text a dimmer gray */
+  font-size: 0.9rem;
+  color: #a0aec0;
+}
+.back-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  color: var(--text-light);
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card {
+  background-color: var(--bg-light);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.restaurant-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.order-meta {
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  margin-top: 0.25rem;
+}
+
+.meta-dot {
+  margin: 0 0.5rem;
+}
+
+.header-status {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.order-total {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.status-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-delivered { background-color: rgba(74, 222, 128, 0.2); color: #4ade80; }
+.status-out-for-delivery { background-color: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.status-preparing { background-color: rgba(245, 158, 11, 0.2); color: #facc15; }
+.status-pending { background-color: rgba(156, 163, 175, 0.2); color: #9ca3af; }
+.status-cancelled { background-color: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+
+.order-body {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  flex-grow: 1; /* Allows body to take up space */
+}
+
+.items-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.order-item {
+  display: flex;
+  color: var(--text-dark);
+  font-size: 0.875rem;
+}
+
+.item-quantity {
+  width: 40px;
+  flex-shrink: 0;
+}
+
+/* --- IMPROVED STYLES --- */
+.order-actions {
+  background-color: var(--bg-dark);
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-end; /* Push content to the right */
+  align-items: center; /* Vertically center items */
+}
+
+.review-btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px; /* Pill shape */
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.review-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.track-order-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+.track-order-link:hover {
+  text-decoration: underline;
+}
+
+.review-submitted {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4ade80;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.review-submitted svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+/* --- EMPTY STATE --- */
+/* This is the main container for the empty message */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  margin: 20px;
+  text-align: center;
+  background-color: var(--bg-light, #f9fafb); /* A very light grey background */
+  border: 1px solid var(--border-color, #e5e7eb);  /* A light, solid border */
+  border-radius: 12px;
+  opacity: 0; /* Start hidden for fade-in effect */
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* A simple fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* The SVG icon */
+.empty-state__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  color: var(--text-muted, #9ca3af); /* A soft, medium-grey for the icon */
+}
+
+/* The main heading like "No Orders Here" */
+.empty-state__title {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  color: var(--text-dark, #374151); /* A dark grey for better readability */
+  margin: 0 0 4px 0;
+}
+
+/* The smaller paragraph text */
+.empty-state__text {
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-secondary, #6b7280); /* A slightly lighter grey for the subtext */
+  max-width: 280px;
+  line-height: 1.5;
+  margin: 0;
+}

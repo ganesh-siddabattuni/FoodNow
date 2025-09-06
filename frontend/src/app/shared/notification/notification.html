@@ -1,0 +1,73 @@
+<!-- Bottom Right Position (Default) -->
+<div class="toast-container bottom-right">
+  @for (toast of notificationService.toasts(); track toast.id) {
+    <div class="toast toast-{{toast.type}}" [class.show]="true">
+      <div class="toast-content">
+        <div class="toast-icon">
+          @switch (toast.type) {
+            @case ('success') {
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+            }
+            @case ('error') {
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+            }
+            @case ('loading') {
+              <svg class="animate-spin" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm6 14a6 6 0 110-12 6 6 0 010 12z" opacity="0.3"/>
+                <path d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm6 14V4a6 6 0 010 12z"/>
+              </svg>
+            }
+            @default {
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+            }
+          }
+        </div>
+        <span class="toast-message">{{ toast.message }}</span>
+      </div>
+    </div>
+  }
+</div>
+
+<!-- Center Top Position (Uncomment to use instead) -->
+<!--
+<div class="toast-container center-top">
+  @for (toast of notificationService.toasts(); track toast.id) {
+    <div class="toast toast-{{toast.type}}" [class.show]="true">
+      <div class="toast-content">
+        <div class="toast-icon">
+          @switch (toast.type) {
+            @case ('success') {
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+            }
+            @case ('error') {
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+            }
+            @case ('loading') {
+              <svg class="animate-spin" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm6 14a6 6 0 110-12 6 6 0 010 12z" opacity="0.3"/>
+                <path d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm6 14V4a6 6 0 010 12z"/>
+              </svg>
+            }
+            @default {
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+            }
+          }
+        </div>
+        <span class="toast-message">{{ toast.message }}</span>
+      </div>
+    </div>
+  }
+</div>
+-->
